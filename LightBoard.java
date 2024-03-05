@@ -10,10 +10,10 @@ Postcondition: each light has a 40% probability of being set to on.
 
     public LightBoard(int numRows, int numCols) {
         lights= new boolean[numRows][numCols];
-        double probability=Math.random();
+        double probability = Math.random();
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                lights[i][j]= (probability<0.4);
+                lights[i][j] = (probability < 0.4);
             }
         }
     }
