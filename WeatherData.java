@@ -27,13 +27,18 @@ public class WeatherData {
 */
 
     public int longestHeatWave(double threshold) { 
-        double max= temperatures.get(0);
-        for (int i=0; i < temperatures.size(); i++) {
-            if (temperatures.get(i) > max || temperatures.get(i) < threshold) {
-                return i;
+        int heatWaveLength=0;
+        int maxHeatWaveLength=0;
+        for (int i=0; i<temperatures.size(); i++) {
+            if (temperatures.get(i) > threshold) {
+                heatWaveLength++;
+                if (heatWaveLength > maxHeatWaveLength) {
+                    maxHeatWaveLength=heatWaveLength;
+                }
+            } else {
+                heatWaveLength=0;
             }
         }
-        return -1; 
+        return maxHeatWaveLength;
     }
-
 }
